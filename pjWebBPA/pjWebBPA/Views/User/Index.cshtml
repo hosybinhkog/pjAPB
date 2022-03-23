@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Web học fullstack hay nhất việt nam">
+    <meta name="author" content="Nhóm Bình Phong Anh">
+    <meta name="keywords" content="HTML , CSS , SCSS , JavaScript , Typescript">
+    <title>Đăng nhập</title>
+    <link href="~/assets/boxicons-2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+    <link href="~/assets/css/user.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="auth">
+        <div class="container">
+            <div class="auth__container">
+                <div class="auth__header">
+                    <div class="auth__header__logo">
+                        <a href="/Home/index">
+                            <img src="~/assets/images/logo40.png" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <h1 class="auth__header__title">
+                        Chào mừng đến với <span>APB</span>
+                    </h1>
+                    <div class="auth__header__login__others">
+                        <div class="login-others">
+                            <img src="~/assets/images/person-svgrepo-com.svg" alt="Alternate Text" />
+                            
+                                @Html.ActionLink("Sử dụng Email / Số điện thoại", "Login")
+                          
+                        </div>
+                        <div class="login-others">
+                            <img src="~/assets/images/google-svgrepo-com.svg" alt="Alternate Text" />
+                            @Html.ActionLink("Đăng nhập với google", "Login")
+                        </div>
+                        <div class="login-others">
+                            <img src="~/assets/images/facebook-svgrepo-com.svg" alt="Alternate Text" />
+                            @Html.ActionLink("Đăng nhập với facebook", "Login")
+                        </div>
+                        <div class="login-others">
+                            <img src="~/assets/images/github-svgrepo-com.svg" alt="Alternate Text" />
+                            @Html.ActionLink("Đăng nhập với github", "Login")
+                        </div>
+                        <p class="register-form">
+                            Bạn chưa có tài khoản ? <span> @Html.ActionLink("Đăng ký", "Register")</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="auth__footer">
+                    <a href="#">Giới thiệu về APB</a>
+                    <span class="spane-white">|</span>
+                    <a href="#">ABP<span>PRO</span> trên facebook</a>
+                    <span class="spane-white">|</span>
+                    <a href="#">Liên hệ hợp tác</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

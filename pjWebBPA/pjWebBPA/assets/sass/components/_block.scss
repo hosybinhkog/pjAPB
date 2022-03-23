@@ -1,0 +1,196 @@
+﻿.block__container {
+    margin-top: 2rem;
+}
+
+.block {
+    &__main {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+
+
+        &__item {
+            transition: all 0.3s ease;
+
+            &__heading {
+                margin-top: 1rem;
+                margin-bottom: 0.8rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+            &__button {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 16px;
+                transition: all 0.3s ease;
+
+
+                & a {
+                    transition: all 0.3s ease;
+                    transform: translateY(100px);
+                    visibility: hidden;
+                    background: $white-color;
+                    border: none;
+                    color: $text-color;
+                    font-size: 1rem;
+                    padding: 8px 16px;
+
+                    &:hover{
+                        border: none;
+                        transform: scale(1.1) translateY(3px);
+                        color: $main-color;
+                    }
+                }
+
+                &:hover {
+                    background: rgba(0,0,0,0.3);
+
+                    & a {
+                        transform: translateY(0);
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        &__header {
+            position: relative;
+            transition: all 0.3s ease;
+
+            & img {
+                width: 400px;
+                height: 200px;
+                border-radius: 16px;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        &__span {
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            &:hover {
+                i {
+                    transition: all 0.3s ease;
+                    transform: translateX(3px);
+                }
+            }
+
+            & a:hover {
+                opacity: 1.1;
+                color: $primary-color;
+            }
+        }
+
+        &__heading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+
+
+            & a {
+                color: #000;
+                font-weight: 800;
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+
+
+.span-blue {
+    background-color: #1473e6;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 3px 6px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.block__main__item__watch{
+    display: flex;
+    gap: 1rem;
+    align-items:center;
+    & img{
+        width: 20px;
+    }
+}
+
+
+.section__newbie {
+    max-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    &__left {
+        max-width: 420px;
+
+        &__heading {
+            font-weight: 900;
+            line-height: 1.4;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        & p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
+        }
+
+        & a {
+            border: 2 px solid #292929;
+            border-radius: 999px;
+            color: #292929;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 8px;
+            padding: 10px 16px;
+            text-align: center;
+            transition: .2s ease;
+            border: 2px solid #000;
+
+            &:hover{
+                background: #121212;
+                color: $white-color;
+            }
+        }
+    }
+
+    &__right {
+        img {
+            width: 420px;
+            height: 420px;
+        }
+    }
+}

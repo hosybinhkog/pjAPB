@@ -1,0 +1,35 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+
+  &__left {
+    & img {
+      border-radius: 9999px;
+      height: 160px;
+      width: 160px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    &__name {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.btn-edit {
+  display: inline-block;
+  height: 40px;
+  width: max-content;
+  padding: 10px 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid #ea4c89;
+}

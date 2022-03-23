@@ -1,0 +1,75 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Web học fullstack hay nhất việt nam">
+    <meta name="author" content="Nhóm Bình Phong Anh">
+    <meta name="keywords" content="HTML , CSS , SCSS , JavaScript , Typescript">
+    <title>Đăng ký - APB</title>
+    <link href="~/assets/boxicons-2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+    <link href="~/assets/css/user.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="auth">
+        <div class="container">
+            <div class="auth__container">
+                <div class="auth__header">
+                    <a href="/user/Register" class="back">
+                        <i class='bx bx-chevron-left'></i>
+                    </a>
+                    <div class="auth__header__logo">
+                        <a href="/Home/index">
+                            <img src="~/assets/images/logo40.png" alt="Alternate Text" />
+                        </a>
+                    </div>
+                    <h1 class="auth__header__title">
+                        Đăng kí tài khoản <span>APB</span>
+                    </h1>
+                    <div class="auth__header__center">
+                        <form action="/" method="post">
+                            <div class="form-group-auth">
+                                <label for="username" class="form-label">Tên của bạn?</label>
+                                <input id="username" name="username" type="text" placeholder="họ và tên của bạn" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group-auth">
+                                <label for="email" class="form-label">Email</label>
+                                <input id="email" name="email" type="text" placeholder="địa chỉ email" class="form-control">
+                                <span class="form-message"></span>
+                            </div>
+                            <div class="form-group-auth">
+                                <label for="password" class="form-label">Mật khẩu</label>
+                                <input id="password" name="password" type="password" placeholder="mật khẩu bạn muốn" class="form-control">
+                                <p class="desc">Gợi ý: mật khẩu cần ít nhất 8 ký tự</p>
+                                <span class="form-message"></span>
+                            </div>
+                            <button class="button-auth" type="submit">
+                                Đăng Ký
+                            </button>
+                        </form>
+                        <p class="register-form">
+                            Bạn đã có tài khoản ? <span> @Html.ActionLink("Đăng nhập", "Login")</span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="auth__footer">
+                    <a href="#">Giới thiệu về APB</a>
+                    <span class="spane-white">|</span>
+                    <a href="#">ABP<span>PRO</span> trên facebook</a>
+                    <span class="spane-white">|</span>
+                    <a href="#">Liên hệ hợp tác</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

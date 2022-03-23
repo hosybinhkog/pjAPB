@@ -1,0 +1,43 @@
+.brands {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+
+  & .heading {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    & i {
+      color: $primary-color;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.2rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & img {
+      width: 400px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 1.6rem;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
