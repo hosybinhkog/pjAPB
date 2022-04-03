@@ -46,6 +46,7 @@
     }
 
     &__container {
+        overflow-x: overlay;
         &__title {
             font-size: 2.2rem;
             font-weight: 800;

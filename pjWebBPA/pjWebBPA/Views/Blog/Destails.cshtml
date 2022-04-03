@@ -10,7 +10,7 @@
 <div class="container__center">
     <div class="blogDetails">
         <div class="blogDetails__static">
-            <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/274810440_480441403777926_4721709829246456697_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=G3lFJw3U69MAX81aZ1x&tn=pPSAAyIkYEDfcjTa&_nc_ht=scontent.fsgn2-4.fna&oh=03_AVLtHzak4-QlkmWnOLWKdXgpr24yiNRJjJ88EsLwCFkzgQ&oe=62677DAA" alt="Alternate Text" />
+            <img src="@Model.blogDetails.imageAuthor" alt="Alternate Text" />
             <h4>@Model.blogDetails.Author</h4>
             <p>nothing yet</p>
             <hr />
@@ -38,10 +38,10 @@
                     <i class='bx bx-dots-horizontal-rounded'></i>
                 </div>
             </div>
-            <p>
-                @Model.blogDetails.ContentBlog
-            </p>
-            <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b634151fbbb.png" alt="wepik-20211113-01332.png" />
+            
+                @Html.Raw(Model.blogDetails.ContentBlog)
+            
+            <img src="@Model.blogDetails.ThumBlog" alt="wepik-20211113-01332.png" />
         </div>
         <ul class="tag">
             <li>

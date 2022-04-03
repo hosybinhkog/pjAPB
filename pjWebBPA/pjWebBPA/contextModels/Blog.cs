@@ -18,6 +18,7 @@ namespace pjWebBPA.contextModels
 
         [Required]
         [AllowHtml]
+        [Display(Name = "Content blog")]
         public string ContentBlog { get; set; }
 
         [StringLength(250)]

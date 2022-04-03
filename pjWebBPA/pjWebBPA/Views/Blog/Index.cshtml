@@ -35,9 +35,11 @@
                     <div class="flex-center">
                         <div>
                             <h3>@Html.ActionLink(blog.Title, "Destails", "Blog", new { id = blog.BlogId }, null)</h3>
-                            <p>
-                                @{ <text>@blog.ContentBlog</text>}
-                            </p>
+                            
+                            <div class="three__row">
+                                @Html.Raw(blog.ShortContent)
+                            </div>
+                            
                             <p>@String.Format("{0:MM/dd/yyyy}", blog.CreateAt)</p>
                         </div>
                         <img src="@blog.ThumBlog" alt="Alternate Text" />

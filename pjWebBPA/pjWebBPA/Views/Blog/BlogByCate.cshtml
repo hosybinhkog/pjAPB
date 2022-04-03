@@ -37,7 +37,7 @@
                         <div>
                             <h3>@Html.ActionLink(blog.Title, "Destails", "Blog", new { id = blog.BlogId }, null)</h3>
                             <p>
-                                @{ <text>@blog.ContentBlog</text>}
+                                @{ <text>@blog.ShortContent </text>}
                             </p>
                             <p>@String.Format("{0:MM/dd/yyyy}", blog.CreateAt)</p>
                         </div>

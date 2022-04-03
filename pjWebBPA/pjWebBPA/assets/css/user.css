@@ -129,4 +129,16 @@ select {
     flex-shrink: 0;
     border-radius: 5px;
     object-fit:cover;
+    margin-left: auto;
+}
+
+.three__row {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.blogDetails__container .code-toolbar pre.language-js code.language-js {
+    font-size: 1.1rem !important;
 }

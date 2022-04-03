@@ -42,7 +42,7 @@
         else
         {
             <div class="header__action">
-                <a href="profileUser.php" class="header__action__admin">
+                <a href="@Url.Action("Index", "Me")" class="header__action__admin">
                     <img class="avatar"
                          src="
                      @if (Session["avatar"] != null)

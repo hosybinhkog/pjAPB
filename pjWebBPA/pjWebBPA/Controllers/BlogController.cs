@@ -58,7 +58,14 @@ namespace pjWebBPA.Controllers
                 {
                     blog.Author = Session["email"].ToString();
                 }
-                blog.imageAuthor = Session["avatar"].ToString();
+                if(Session["avatar"] != null)
+                {
+                    blog.imageAuthor = Session["avatar"].ToString();
+                }
+                else
+                {
+                    blog.imageAuthor = "https://openclipart.org/image/800px/247320";
+                }
                 blog.AccountId = int.Parse(Session["userId"].ToString());
                 blog.isNewfeed = true;
                 blog.isHot = false;
