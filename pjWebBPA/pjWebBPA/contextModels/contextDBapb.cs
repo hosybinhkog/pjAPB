@@ -27,7 +27,6 @@ namespace pjWebBPA.contextModels
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
-
         public virtual DbSet<description> Descriptions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

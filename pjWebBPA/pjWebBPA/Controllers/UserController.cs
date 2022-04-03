@@ -86,6 +86,7 @@ namespace pjWebBPA.Controllers
                 else
                 {
                     userAccount.password = GetMD5(userAccount.password);
+                    userAccount.CreateAt = DateTime.Now;    
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.CustomerUsers.Add(userAccount);
                     db.SaveChanges();

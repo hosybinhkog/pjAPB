@@ -98,7 +98,6 @@ if (activeModel) {
 const listMatch = document.querySelectorAll(".match__right ul li");
 const frameMatch = document.querySelector(".match__left__frame iframe")
 
-
 if (listMatch) {
     listMatch.forEach((item) => {
         item.addEventListener("click", () => {
@@ -109,7 +108,11 @@ if (listMatch) {
                 ActiveLi.classList.remove('active');
                 
             }
-            item.classList.add('active')
+            item.classList.add('active');
+            const titleTemp = item.querySelector("a div h5");
+            const title = document.querySelector(".match__left__heading");
+            console.log(" ", titleTemp, { title });
+            title.innerText = titleTemp.innerText;
             frameMatch.setAttribute('src', urlAutoPlay);
         })
     })

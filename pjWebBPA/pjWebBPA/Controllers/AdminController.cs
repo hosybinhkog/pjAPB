@@ -164,6 +164,85 @@ namespace pjWebBPA.Controllers
             return View(mymodel);
         }
 
+        public ActionResult UpdateCategoriesBlog(int id)
+        {
+            if (Session["login"] == null || Session["isAdmin"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            CategoryBlog cateUpdate = db.CategoryBlogs.FirstOrDefault(c => c.Id == id);
+            if(cateUpdate == null)
+            {
+                ViewBag.error = "Not found";
+                return RedirectToAction("Categories", "Admin");
+            }
+
+            return View(cateUpdate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateCategoriesBlog(CategoryBlog cateInput)
+        {
+            CategoryBlog cateUpdate = db.CategoryBlogs.SingleOrDefault(item => item.Id == cateInput.Id);
+            if (cateUpdate == null)
+            {
+                ViewBag.error = "Update lỗi";
+                return View();
+            }
+
+            cateUpdate.Title = cateInput.Title;
+            cateUpdate.Slug= cateInput.Slug;
+            cateUpdate.Content = cateInput.Content;
+            cateUpdate.UpdateAt = DateTime.Now;
+            cateUpdate.Thumb = cateInput.Thumb;
+            
+            db.Entry(cateUpdate).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Categories", "Admin");
+
+        }
+
+        public ActionResult UpdateCategoryCourse(int id)
+        {
+            if (Session["login"] == null || Session["isAdmin"] == null)
+            {
+                return RedirectToAction("Login");
+            }
+            CategoryCourse categoryUpdate = db.CategoryCourses.SingleOrDefault(item => item.CategoryCourseId == id);
+            if (categoryUpdate == null)
+            {
+                ViewBag.error = "Not found";
+                return RedirectToAction("Categories", "Admin");
+            }
+            return View(categoryUpdate);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateCategoryCourse(CategoryCourse cateInput)
+        {
+            CategoryCourse cateUpdate = db.CategoryCourses.SingleOrDefault(item => item.CategoryCourseId == cateInput.CategoryCourseId);
+            if (cateUpdate == null)
+            {
+                ViewBag.error = "Update lỗi";
+                return View();
+            }
+            cateUpdate.TitleCategoryCourse = cateInput.TitleCategoryCourse;
+            cateUpdate.UrlCourse = cateInput.UrlCourse;
+            cateUpdate.CategoryCourseName = cateInput.CategoryCourseName;
+            cateUpdate.UpdateAt = DateTime.Now;
+            cateUpdate.isHot = cateInput.isHot;
+
+            db.Entry(cateUpdate).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Categories", "Admin");
+        }
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateCategoryCourse(CategoryCourse cateCourse)

@@ -10,7 +10,14 @@
     </h2>
     <div class="profile">
         <div class="profile__left">
-            <img src="@Model.DisplayImage" alt="">
+            @if (Model.DisplayImage != null)
+            {
+               <img src="@Model.DisplayImage"/>
+            }
+            else
+            {
+                <text>Chưa có ảnh avatar</text>
+            }
         </div>
         <div class="profile__right">
             <h3 class="profile__right__name">
@@ -86,7 +93,8 @@
                 Chỉnh xửa thông tin
             </a>
             <a href="" class="btn-edit">Các khóa học đã mua</a>
-            <a href="" class="btn-edit">Các bài viết của bạn</a>
+            <a href="@Url.Action("BlogOfMe", "Me")" class="btn-edit">Các bài viết của bạn</a>
+            <a href="@Url.Action("BlogOfMe", "Me")" class="btn-edit">Các bài viết của bạn</a>
         </div>
     </div>
 </div>

@@ -43,6 +43,8 @@ namespace pjWebBPA.contextModels
 
         public DateTime? CreateAt { get; set; }
 
+        public DateTime? UpdatedAt { get ; set; }   
+
         public List<CategoryBlog> listCategories = new List<CategoryBlog>();
 
         public virtual CategoryBlog CategoryBlog { get; set; }

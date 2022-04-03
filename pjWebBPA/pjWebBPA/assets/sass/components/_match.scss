@@ -40,6 +40,15 @@
                 font-weight: 500;
                 line-height: 1.5;
 
+                & h5 {
+                    width: 300px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    line-height: 1;
+                    overflow: hidden;
+                }
+
                 & i {
                     padding: 0.5rem;
                     border-radius: 50%;

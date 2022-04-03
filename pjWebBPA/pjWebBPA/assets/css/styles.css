@@ -1869,6 +1869,13 @@ header.header {
   color: #666;
 }
 
+.test {
+  background: white;
+}
+.test__blue {
+  background: blue;
+}
+
 .sidebar {
   min-width: 300px;
   height: 100vh;
@@ -2106,6 +2113,11 @@ tbody > tr:hover {
   font-weight: 600;
   margin-bottom: 1rem;
 }
+.detailsCategoryCourse__left__container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .detailsCategoryCourse__left__container ul li {
   display: flex;
   gap: 2rem;
@@ -2278,6 +2290,14 @@ tbody > tr:hover {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.5;
+}
+.match__right ul li div h5 {
+  width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 1;
+  overflow: hidden;
 }
 .match__right ul li div i {
   padding: 0.5rem;

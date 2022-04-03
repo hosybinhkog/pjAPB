@@ -34,7 +34,7 @@
                                 <td> <img style="width: 70px; height: 70px; object-fit:cover" src="@item.Thumb" /></td>
                                 <td>@item.Slug</td>
                                 <td>@item.CreatedAt</td>
-                                <td><a href="#">Edit</a></td>
+                                <td><a href="@Url.Action("UpdateCategoriesBlog", "Admin" , new {id = item.Id})">Edit</a></td>
                             </tr>
                         }
                     </tbody>

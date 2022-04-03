@@ -1,6 +1,7 @@
 ﻿using pjWebBPA.contextModels;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,8 +30,48 @@ namespace pjWebBPA.Controllers
                 return RedirectToAction("Login", "User");
             }
             int id = int.Parse(Session["userId"].ToString());
-            return View();
+            dynamic mymodel = new ExpandoObject();
+            mymodel.blogOfMe = db.Blogs.Where(item => item.AccountId == id);
+            return View(mymodel);
         }
+
+        public ActionResult UpdateBlogOfMe(int id)
+        {
+            if (Session["login"] == null)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            Blog blogEdit = db.Blogs.SingleOrDefault(item => item.BlogId == id);
+            if (blogEdit == null)
+            {
+                ViewBag.error = "Không tìm thấy blog này";
+            }
+
+            return View(blogEdit);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UpdateBlogOfMe(Blog blogUpdate)
+        {
+            Blog blogEdit = db.Blogs.SingleOrDefault(item => item.BlogId == blogUpdate.BlogId);
+            if(blogEdit == null)
+            {
+                ViewBag.error = "Cập nhật blog lỗi";
+                return View();
+            }
+            blogEdit.Title = blogUpdate.Title;
+            blogEdit.ContentBlog = blogUpdate.ContentBlog;
+            blogEdit.ShortContent = blogUpdate.ShortContent;
+            blogEdit.ThumBlog = blogUpdate.ThumBlog;
+            blogEdit.Tag = blogUpdate.Tag;
+            blogEdit.UpdatedAt = DateTime.Now;
+            db.Entry(blogEdit).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("BlogOfMe");
+        }
+
 
         public ActionResult Update()
         {

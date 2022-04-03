@@ -181,3 +181,10 @@
         }
     }
 }
+
+.test{
+    background: white;
+    &__blue{
+        background: blue;
+    }
+}

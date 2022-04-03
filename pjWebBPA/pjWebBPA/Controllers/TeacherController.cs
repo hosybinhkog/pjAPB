@@ -14,7 +14,8 @@ namespace pjWebBPA.Controllers
         contextDBapb db = new contextDBapb();
         public ActionResult Index()
         {
-            return View();
+            List<Teacher> teachers = db.Teachers.Take(4).ToList();
+            return View(teachers);
         }
 
         public ActionResult Create()

@@ -367,6 +367,10 @@
     <Content Include="Views\Shared\_LayoutLearning.cshtml" />
     <Content Include="Views\Teacher\Details.cshtml" />
     <Content Include="Views\Me\Update.cshtml" />
+    <Content Include="Views\Me\BlogOfMe.cshtml" />
+    <Content Include="Views\Me\UpdateBlogOfMe.cshtml" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Admin\UpdateCategoriesBlog.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
