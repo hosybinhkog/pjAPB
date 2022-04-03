@@ -8,136 +8,173 @@
     <div class="block__header">
         <h2 class="block__header__heading">
             <a href="#">
+                Lộ trình học Back-end
+                <span class="span-blue">Mới</span>
+            </a>
+        </h2>
+        <span class="block__header__span">
+            <a href="@Url.Action("Backend","LearningPath")">Xem chi tiết </a>
+            <i class='bx bx-chevron-right'></i>
+        </span>
+    </div>
+    <div class="block__main">
+        @foreach (var item in Model.listCourseNotFontend)
+        {
+            <div class="block__main__item">
+                <div class="block__main__header">
+                    <img src="@item.CategoryImage" alt="Alternate Text" />
+                    <div class="block__main__item__button">
+                        <a href="@Url.Action("Details","CategoryCourse", new {id = item.CategoryCourseId})" class="btn--sub">Tìm kiếm ngay</a>
+                    </div>
+                </div>
+                <h3 class="block__main__item__heading">
+                    <a href="@Url.Action("Details","CategoryCourse", new {id = item.CategoryCourseId})">
+                        @item.CategoryCourseName
+                    </a>
+                </h3>
+                <div class="block__main__item__watch">
+                    <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
+                    <span>71.098</span>
+                </div>
+            </div>
+        }
+    </div>
+    <div style="margin-top: 3rem" class="block__header">
+        <h2 class="block__header__heading">
+            <a href="#">
                 Lộ trình học Font-end
                 <span class="span-blue">Mới</span>
             </a>
         </h2>
         <span class="block__header__span">
-            <a href="#">Xem chi tiết </a>
+            <a href="@Url.Action("Fontend","LearningPath")">Xem chi tiết </a>
             <i class='bx bx-chevron-right'></i>
         </span>
     </div>
     <div class="block__main">
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
+        @foreach (var item in Model.listCourseFondend)
+        {
+            <div class="block__main__item">
+                <div class="block__main__header">
+                    <img src="@item.CategoryImage" alt="Alternate Text" />
+                    <div class="block__main__item__button">
+                        <a href="@Url.Action("Details","CategoryCourse", new {id = item.CategoryCourseId})" class="btn--sub">Tìm kiếm ngay</a>
+                    </div>
+                </div>
+                <h3 class="block__main__item__heading">
+                    <a href="@Url.Action("Details","CategoryCourse", new {id = item.CategoryCourseId})">
+                        @item.CategoryCourseName
+                    </a>
+                </h3>
+                <div class="block__main__item__watch">
+                    <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
+                    <span>71.098</span>
                 </div>
             </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
-
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
+        }
+    </div>
+    <div style="margin-top: 3rem" class="block__header">
+        <h2 class="block__header__heading">
+            <a href="#">
+                Các chủ đề về Fullstack
+                <span class="span-blue">Mới</span>
+            </a>
+        </h2>
+        <span class="block__header__span">
+            <a href="@Url.Action("Index","LearningPath")">Xem chi tiết </a>
+            <i class='bx bx-chevron-right'></i>
+        </span>
+    </div>
+    <div class="block__main">
+        @foreach (var item in Model.listCategoryBLog)
+        {
+            <div class="block__main__item">
+                <div class="block__main__header">
+                    <img src="@item.Thumb" alt="Alternate Text" />
+                    <div class="block__main__item__button">
+                        <a href="@Url.Action("BlogByCate", "Blog", new {id = item.Id})" class="btn--sub">Tìm kiếm ngay</a>
+                    </div>
+                </div>
+                <h3 class="block__main__item__heading">
+                    <a href="@Url.Action("BlogByCate", "Blog", new {id = item.Id})">
+                        @item.Title
+                    </a>
+                </h3>
+                <div class="block__main__item__watch">
+                    <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
+                    <span>71.098</span>
                 </div>
             </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
+        }
+    </div>
+    <div style="margin-top: 3rem" class="block__header">
+        <h2 class="block__header__heading">
+            <a href="#">
+                Các giáo viên tiêu biểu
+                <span class="span-blue">Mới</span>
+            </a>
+        </h2>
+        <span class="block__header__span">
+            <a href="@Url.Action("Index","LearningPath")">Xem chi tiết </a>
+            <i class='bx bx-chevron-right'></i>
+        </span>
+    </div>
+    <div class="block__main">
+        @foreach (var item in Model.listTeacher)
+        {
+            <div class="block__main__item">
+                <div class="block__main__header">
+                    <img style="object-fit: cover; height: 400px" src="@item.Image" alt="Alternate Text" />
+                    <div class="block__main__item__button">
+                        <a href="@Url.Action("BlogByCate", "Blog", new {id = item.TeacherId})" class="btn--sub">Xem chi tiết</a>
+                    </div>
+                </div>
+                <h3 class="block__main__item__heading">
+                    <a href="@Url.Action("BlogByCate", "Blog", new {id = item.TeacherId})">
+                        @item.TeacherName
+                    </a>
+                </h3>
+                <div class="block__main__item__watch">
+                    <i class='bx bx-customize' style="font-size: 1.4rem; font-weight: 500"></i>
+                    <span>@item.Skill</span>
+                </div>
+                <p style=" width: 300px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; margin-top: 1.5rem; font-size: 1.2rem; font-weight: 400">@item.Description</p>
             </div>
-        </div>
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
+        }
+    </div>
+    <div style="margin-top: 3rem" class="block__header">
+        <h2 class="block__header__heading">
+            <a href="#">
+                Các bài blog nỗi bật
+                <span class="span-blue">Mới</span>
+            </a>
+        </h2>
+        <span class="block__header__span">
+            <a href="@Url.Action("Index","Blog")">Xem chi tiết </a>
+            <i class='bx bx-chevron-right'></i>
+        </span>
+    </div>
+    <div class="block__main">
+        @foreach (var item in Model.blogHot)
+        {
+            <div class="block__main__item">
+                <div class="block__main__header">
+                    <img src="@item.ThumBlog" alt="Alternate Text" />
+                    <div class="block__main__item__button">
+                        <a href="@Url.Action("Destails","Blog", new {id = item.BlogId})" class="btn--sub">Tìm kiếm ngay</a>
+                    </div>
+                </div>
+                <h3 class="block__main__item__heading">
+                    <a href="@Url.Action("Destails","Blog", new {id = item.BlogId})">
+                        @item.Title
+                    </a>
+                </h3>
+                <div class="block__main__item__watch">
+                    <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
+                    <span>71.098</span>
                 </div>
             </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
-                </div>
-            </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
-                </div>
-            </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Xem khóa học</a>
-                </div>
-            </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
-        <div class="block__main__item">
-            <div class="block__main__header">
-                <img src="https://image.thanhnien.vn/660x370/Uploaded/2022/bahgtm/2022_01_11/lamborghini-huracan-lp610-4-spyder-6126.jpg?1" alt="Alternate Text" />
-                <div class="block__main__item__button">
-                    <a href="#" class="btn--sub">Tìm kiếm ngay</a>
-                </div>
-            </div>
-            <h3 class="block__main__item__heading">
-                <a href="#">
-                    Kiên thức nhập môn IT
-                </a>
-            </h3>
-            <div class="block__main__item__watch">
-                <img src="~/assets/images/team-svgrepo-com.svg" alt="Alternate Text" />
-                <span>71.098</span>
-            </div>
-        </div>
+        }
     </div>
 </div>
 
@@ -150,9 +187,7 @@
         <p>
             Các khóa học được thiết kế phù hợp cho người mới, lộ trình học rõ ràng, nội dung dễ hiểu.
         </p>
-        <a href="#" class="button-black">
-            Xem lộ trình
-        </a>
+        @Html.ActionLink("Xem lộ trình", "Index", "LearningPath", null,  new { @class = "button-black" })
     </div>
     <div class="section__newbie__right">
         <img src="~/assets/images/lotrinh.png" alt="Alternate Text" />

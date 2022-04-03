@@ -1,0 +1,116 @@
+﻿@using pjWebBPA.contextModels;
+@model dynamic
+@{
+    ViewBag.Title = "Destails";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+
+
+}
+
+<div class="container__center">
+    <div class="blogDetails">
+        <div class="blogDetails__static">
+            <img src="https://scontent.fsgn2-4.fna.fbcdn.net/v/t1.15752-9/274810440_480441403777926_4721709829246456697_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=G3lFJw3U69MAX81aZ1x&tn=pPSAAyIkYEDfcjTa&_nc_ht=scontent.fsgn2-4.fna&oh=03_AVLtHzak4-QlkmWnOLWKdXgpr24yiNRJjJ88EsLwCFkzgQ&oe=62677DAA" alt="Alternate Text" />
+            <h4>@Model.blogDetails.Author</h4>
+            <p>nothing yet</p>
+            <hr />
+            <div class="blogDetails__static__action">
+                <div>
+                    <i class='bx bx-heart'></i>
+                    <span>207</span>
+                </div>
+                <div>
+                    <i class='bx bx-message-rounded-minus'></i>
+                    <span>9</span>
+                </div>
+            </div>
+        </div>
+        <div class="blogDetails__container">
+            <h1 class="blogDetails__container__title">@Model.blogDetails.Title</h1>
+            <div class="blogDetails__container__header">
+                <img src="@Model.blogDetails.imageAuthor" alt="Alternate Text" />
+                <div>
+                    <h4>@Model.blogDetails.Author</h4>
+                    <p>@Model.blogDetails.CreateAt · 6 phút đọc</p>
+                </div>
+                <div class="blogDetails__container__header__end">
+                    <i class='bx bx-bookmark'></i>
+                    <i class='bx bx-dots-horizontal-rounded'></i>
+                </div>
+            </div>
+            <p>
+                @Model.blogDetails.ContentBlog
+            </p>
+            <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b634151fbbb.png" alt="wepik-20211113-01332.png" />
+        </div>
+        <ul class="tag">
+            <li>
+                <a href="#">Tag</a>
+            </li>
+            <li>
+                <a href="#">Tag</a>
+            </li>
+            <li>
+                <a href="#">Tag</a>
+            </li>
+        </ul>
+        <div class="author">
+            <h3>Bài đăng cùng tác giả</h3>
+            <ul>
+                @if (Model.authorBlog.Count == 0)
+                {
+                    <text>Không có bài viết nào cùng tác giả</text>
+                }
+                else
+                {
+                    foreach (Blog item in Model.authorBlog)
+                    {
+                        <li>
+                            @Html.ActionLink(item.Title, "Destails", "Blog", new { id = item.BlogId }, null)
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="blogOthors">
+            <h3 class="blogOthors__title">
+                Bài viết nổi bật khác
+            </h3>
+            <div class="blogOthors__container">
+                @if (Model.listBlog.Count == 0)
+                {
+                    <text>Không có bài viết nào nỗi bật</text>
+                }
+                else
+                {
+                    foreach (Blog blog in Model.listBlog)
+                    {
+                        <div class="blogOthors__container__item">
+                            <div class="blogOthors__container__item__header">
+                                <p>Đăng bởi <span>@blog.Author</span></p> · 7 tháng trước
+                            </div>
+                            <h3 class="blogOthors__container__item__title">
+                                <a href="@Url.Action("Destails", "Blog", new {id = blog.BlogId})">@blog.Title</a>
+                            </h3>
+                            <img src="@blog.ThumBlog" alt="Alternate Text" />
+                            <p>
+                                @blog.ShortContent
+                            </p>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+        <div class="footerBlogDetails">
+            <h3>CÁC CHỦ ĐỀ ĐƯỢC ĐỀ XUẤT</h3>
+            <ul>
+                @foreach (CategoryBlog categoryBlog in Model.listCategory)
+                {
+                    <li>
+                        @Html.ActionLink(categoryBlog.Title, "Login")
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

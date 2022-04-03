@@ -1,21 +1,105 @@
-﻿.learning{
-    &__header{
+﻿.learning {
+    &__header {
         margin-bottom: 5rem;
-        &__heading{
+
+        &__heading {
             font-size: 2.4rem;
             font-weight: 800;
             line-height: 1.6;
             margin-bottom: 1.5rem;
         }
 
-        &__desc{
+        &__desc {
             max-width: 850px;
             font-size: 1.3rem;
             font-weight: 400;
             line-height: 1.5;
         }
     }
-    &__container{
+
+    &__container {
         display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+
+        &__item {
+            padding: 2rem;
+            border: 2px solid #e8e8e8;
+            border-radius: 16px;
+            display: flex;
+            gap: 2rem;
+
+            &__right {
+                flex-shrink: 0;
+
+                & img {
+                    width: 120px;
+                    height: 120px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 4px solid $main-color;
+                }
+            }
+
+            &__left {
+                &__heading {
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                    line-height: 1.4;
+                    margin-bottom: 1.5rem;
+                }
+
+                & p {
+                    line-height: 1.6;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+}
+
+
+.learning__button {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    outline: none;
+    padding: 9px 16px;
+    color: #fff;
+    text-align: center;
+    transition: .3s ease;
+    background: $primary-color;
+    border-radius: 999px;
+    &:hover{
+        color: #000;
+        transform: translate(3px);
+    }
+}
+
+.list-course {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+
+    & a {
+        align-items: center;
+        border-radius: 50%;
+        display: flex;
+        height: 100%;
+        padding: 0.3rem;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+        border: 1px solid $primary-color;
+
+        & img {
+            height: 25px;
+            object-fit: cover;
+            width: 25px;
+        }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-
+@model pjWebBPA.contextModels.CustomerUser
 @{
     Layout = null;
 }
@@ -22,9 +22,6 @@
         <div class="container">
             <div class="auth__container">
                 <div class="auth__header">
-                    <a href="/user/Register" class="back">
-                        <i class='bx bx-chevron-left'></i>
-                    </a>
                     <div class="auth__header__logo">
                         <a href="/Home/index">
                             <img src="~/assets/images/logo40.png" alt="Alternate Text" />
@@ -34,27 +31,42 @@
                         Đăng kí tài khoản <span>APB</span>
                     </h1>
                     <div class="auth__header__center">
-                        <form action="/" method="post">
+                        @using (Html.BeginForm("RegisterForm", "User", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken();
                             <div class="form-group-auth">
-                                <label for="username" class="form-label">Tên của bạn?</label>
-                                <input id="username" name="username" type="text" placeholder="họ và tên của bạn" class="form-control">
-                                <span class="form-message"></span>
+                                @Html.LabelFor(m => m.DisplayName, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.DisplayName, new { @class = "form-control", @placeholder = "Ví dụ: Nguyễn Thị Phan Thị" })
+                                <span class="form-message">
+                                    @Html.ValidationMessageFor(model => model.DisplayName, "");
+                                </span>
                             </div>
                             <div class="form-group-auth">
-                                <label for="email" class="form-label">Email</label>
-                                <input id="email" name="email" type="text" placeholder="địa chỉ email" class="form-control">
-                                <span class="form-message"></span>
+                                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Địa chỉ email của bạn" })
+                                <span class="form-message">
+                                    @Html.ValidationMessageFor(model => model.Email, "");
+                                </span>
                             </div>
                             <div class="form-group-auth">
-                                <label for="password" class="form-label">Mật khẩu</label>
-                                <input id="password" name="password" type="password" placeholder="mật khẩu bạn muốn" class="form-control">
-                                <p class="desc">Gợi ý: mật khẩu cần ít nhất 8 ký tự</p>
-                                <span class="form-message"></span>
+                                @Html.LabelFor(m => m.password, new { @class = "form-label" })
+                                @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password của bạn" })
+                                <span class="form-message">
+                                    @Html.ValidationMessageFor(model => model.password, "");
+                                </span>
+                            </div>
+                            <span>@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                           </span>
+                            <div style="padding: 1rem; text-align: center">
+                                
+                                   <h5 style="font-size: 1.3rem"><span>@ViewBag.error</span></h5>
+                                   <h5 style="font-size: 1.3rem">@ViewBag.success</h5>
+                                    
                             </div>
                             <button class="button-auth" type="submit">
                                 Đăng Ký
                             </button>
-                        </form>
+                        }
                         <p class="register-form">
                             Bạn đã có tài khoản ? <span> @Html.ActionLink("Đăng nhập", "Login")</span>
                         </p>

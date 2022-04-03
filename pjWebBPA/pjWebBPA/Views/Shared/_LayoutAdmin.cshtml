@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web học fullstack hay nhất việt nam">
+    <meta name="author" content="Nhóm Bình Phong Anh">
+    <meta name="keywords" content="HTML , CSS , SCSS , JavaScript , Typescript">
+    <title>@ViewBag.Title - ABPPRO</title>
+    <link href="~/assets/boxicons-2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/assets/css/user.css" rel="stylesheet" />
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__menu__toggle">
+            <i class='bx bx-menu-alt-left'></i>
+        </div>
+        <h4 class="header__logo">
+            <a href="/Home">
+                APB<span>PRO</span> Nền Tảng Học Fullstack
+            </a>
+        </h4>
+        <div class="header__search">
+            <i class='bx bx-search icon-search header__search__icon'></i>
+            <input type="text" spellcheck="false"
+                   placeholder=" Tìm kiếm các phụ kiện mà bạn cần"
+                   class="header__search__input">
+        </div>
+        @if (Session["login"] == null || Session["isAdmin"] == null)
+        {
+            <div class="header__action">
+                <button class="btn btn--primary header__action__btn">
+
+                    <i class="bx bxs-user"></i>
+                    @Html.ActionLink("Đăng nhập", "Login", "Admin")
+
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="header__action">
+                <a href="@Url.Action("Index","Me")" class="header__action__admin">
+                    <img class="avatar"
+                         src="
+                     @if (Session["avatar"] != null)
+                {
+                    <text>@Session["avatar"].ToString()</text>
+                } else
+                {
+                    <text>https://banner2.cleanpng.com/20180331/khw/kisspng-computer-icons-user-clip-art-user-5abf13d4b67e20.4808850915224718927475.jpg</text>
+                }
+                 "
+                         alt="">
+                    <span class="name_avatar">
+                        @if (Session["displayName"] != null)
+                        {
+
+                            <text>@Session["displayName"].ToString()</text>
+                        }
+                        else
+                        {
+
+                            <text>@Session["email"].ToString()</text>
+                        }
+                    </span>
+                </a>
+                <button class="btn btn--cart header__action__btn">
+                    @Html.ActionLink("Tạo admin", "RegisterForm", "Admin")
+                </button>
+                <button class="btn btn--primary header__action__btn">
+                    <i class="bx bxs-user"></i>
+                    @Html.ActionLink("Đăng xuất", "Logout", "Admin")
+                </button>
+            </div>
+        }
+
+    </header>
+    <div class="sidebar">
+        <div class="sidebar__logo">
+            <img src="~/assets/images/logo40.png" alt="Alternate Text" />
+        </div>
+        <div class="sidebar__item">
+            <a href="@Url.Action("Index","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "Index") { <text>active</text> } }">
+                <i class="bx bx-category-alt"></i>
+                <span>
+                    Dashboard
+                </span>
+            </a>
+            <a href="@Url.Action("Index","CustomerAdmin")" class="sidebar__item-inner @{ if (ViewBag.Title == "Customers") { <text>active</text> } }">
+                <i class="bx bx-user-pin"></i>
+                <span>
+                    Customers
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "") { <text>active</text> } }">
+                <i class="bx bx-cart "></i>
+                <span>
+                    Orders
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "") { <text>active</text> } }">
+                <i class="bx bx-bar-chart-alt"></i>
+                <span>
+                    Analytics
+                </span>
+            </a>
+            <a href="@Url.Action("Categories","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "Categories") { <text>active</text> } }">
+                <i class="bx bx-list-ol "></i>
+                <span>
+                    categories
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "") { <text>active</text> } }">
+                <i class="bx bx-gift "></i>
+                <span>
+                    discount
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Product")" class="sidebar__item-inner @{ if (ViewBag.Title == "Product") { <text>active</text> } }">
+                <i class="bx bx-store-alt"></i>
+                <span>
+                    Product
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Admin")" class="sidebar__item-inner @{ if (ViewBag.Title == "") { <text>active</text> } }">
+                <i class="bx bx-cog"></i>
+                <span>
+                    settings
+                </span>
+            </a>
+        </div>
+    </div>
+    <main>
+        <div class="main">
+            <div class="layout__content">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <!--<footer class="footer">
+            <div class="container">
+                <div class="footer__container">
+                    <div class="footer__container__header">
+                        <ul class="footer__container__header__block">
+                            <h2 class="footer__container__header__block__logo">
+                                APB <span>PRO</span> Nền Tảng Học Fullstack
+                            </h2>
+                            <li>
+                                Điện thoại: <a href="tel:0972959036">0972959036</a>
+                            </li>
+                            <li>
+                                Email:<a href="mailto:hosybinhkog@gmail.com">
+                                    hosybinhkog@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                Địa chỉ: Nhà 49/1, Đường Bùi Đình Túy, Phường 24, Bình Thạnh, Tp Hồ Chí Minh
+                            </li>
+                        </ul>
+                        <ul class="footer__container__header__block">
+                            <h2>Về APB<span>PRO</span></h2>
+                            <li><a href="">Giới thiệu</a></li>
+                            <li><a href="">Cơ hội làm việc</a></li>
+                            <li><a href="">Đối tác</a></li>
+                        </ul>
+                        <ul class="footer__container__header__block">
+                            <h2>Hỗ Trợ</h2>
+                            <li><a href="">Liên hệ</a></li>
+                            <li><a href="">Bảo mật</a></li>
+                            <li><a href="">Điều khoản</a></li>
+                            <li><a href="">Khiếu nại</a></li>
+                        </ul>
+                        <ul class="footer__container__header__block">
+                            <h2>CÔNG TY CỔ PHẦN <span>TFTLOL</span></h2>
+                            <li>
+                                Mã số thuế: 0123456789
+                            </li>
+                            <li>
+                                Ngày thành lập: 19/1/2022
+                            </li>
+                            <li>
+                                Lĩnh vực: Lập trình Web, Giáo dục
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__container__footer">
+                        <div class="copy-right">
+                            © 2022 Web APB<span>PRO</span> - Nền tảng dạy lập trình Full Stack số 1 Việt Nam
+                        </div>
+                        <div class="footer__container__footer__social">
+                            <a href="https://www.facebook.com/linhtranphuongle">
+                                <i class='bx bxl-facebook-square icon-facebook'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bxl-instagram-alt icon-ins'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bxl-youtube icon-youtube'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>-->
+    <script type="text/javascript" src="~/assets/scripts/app1.js"></script>
+</body>
+    </html>

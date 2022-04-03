@@ -1,0 +1,65 @@
+﻿@model pjWebBPA.contextModels.CategoryBlog
+
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="create">
+    <h1 class="create__title">CategoryBlog</h1>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="create__container">
+        <div class="form-group-auth">
+            @Html.LabelFor(model => model.Title,  new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Title,  new { @class = "form-control", @placeholder = "Lan xóm chùa" } )
+            <span class="form-message">
+                @Html.ValidationMessageFor(model => model.Title, "");
+            </span>
+        </div>
+
+        <div class="form-group-auth">
+            @Html.LabelFor(model => model.Content,  new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Content,  new { @class = "form-control", @placeholder = "Lập trình dữ liệu" } )
+            <span class="form-message">
+                @Html.ValidationMessageFor(model => model.Content, "");
+            </span>
+        </div>
+
+        <div class="form-group-auth">
+            @Html.LabelFor(model => model.Thumb, new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Thumb,  new { @class = "form-control", @placeholder = "vd: http//images " } )
+            <span class="form-message">
+                @Html.ValidationMessageFor(model => model.Thumb, "");
+            </span>
+        </div>
+
+
+        <div class="form-group-auth">
+            @Html.LabelFor(m => m.Slug, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Slug, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+            <span class="form-message">
+                @Html.ValidationMessageFor(model => model.Slug, "");
+            </span>
+        </div>
+        <span>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </span>
+        <div style="padding: 1rem; text-align: center">
+
+            <h5 style="font-size: 1.3rem"><span>@ViewBag.error</span></h5>
+            <h5 style="font-size: 1.3rem">@ViewBag.success</h5>
+
+        </div>
+        <button class="button-auth" type="submit">
+            Create
+        </button>
+    </div>
+</div>
+}

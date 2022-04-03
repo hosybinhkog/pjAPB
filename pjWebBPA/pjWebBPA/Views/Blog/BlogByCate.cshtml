@@ -1,0 +1,65 @@
+﻿
+@using pjWebBPA.contextModels;
+@model dynamic
+@{
+    ViewBag.Title = "Blog by category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="blogpage">
+    <h1 class="blogpage__title">
+        Bài viết nổi bật
+    </h1>
+    <p class="blogpage__desc">
+        Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình online và các kỹ thuật lập trình web.
+    </p>
+    <div class="blogpage__container">
+        <div class="blogpage__container__left">
+            @foreach (Blog blog in Model.listBlog)
+            {
+                <div class="blogpage__container__left__item">
+                    <div class="blogpage__container__left__item__header">
+                        <div>
+                            <img src="
+                                    @if (blog.imageAuthor != null) { <text>@blog.imageAuthor</text>} else {<text>http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png</text> }
+                                 " alt="Alternate Text" />
+                            <span>@blog.Author</span>
+
+                        </div>
+
+                        <div>
+
+                            <i class='bx bx-bookmark'></i>
+                            <i class='bx bx-dots-horizontal-rounded'></i>
+                        </div>
+                    </div>
+                    <div class="flex-center">
+                        <div>
+                            <h3>@Html.ActionLink(blog.Title, "Destails", "Blog", new { id = blog.BlogId }, null)</h3>
+                            <p>
+                                @{ <text>@blog.ContentBlog</text>}
+                            </p>
+                            <p>@String.Format("{0:MM/dd/yyyy}", blog.CreateAt)</p>
+                        </div>
+                        <img src="@blog.ThumBlog" alt="Alternate Text" />
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="blogpage__container__right">
+            <h4 class="blogpage__container__right__title">
+                CÁC CHỦ ĐỀ ĐƯỢC ĐỀ XUẤT
+            </h4>
+            <ul class="blogpage__container__right__list">
+                @foreach (CategoryBlog categoryBlog in Model.listCategory)
+                {
+                    <li>
+                        <a href="@Url.Action("BlogByCate", "Blog", new {id = categoryBlog.Id })">@categoryBlog.Title</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

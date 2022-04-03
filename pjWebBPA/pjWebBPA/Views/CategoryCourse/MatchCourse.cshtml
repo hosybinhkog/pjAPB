@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "MatchCourse";
+    Layout = "~/Views/Shared/_LayoutLearning.cshtml";
+}
+
+<div class="match">
+    <div class="match__left">
+        <div class="match__left__frame">
+            <iframe width="1198" height="674" src="https://www.youtube.com/embed/R6plN3FvzFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h1 class="match__left__heading">
+            Làm được gì sau khóa học?
+        </h1>
+        <p>
+            Cập nhật tháng 2 năm 2022
+        </p>
+        <p>
+            Tham gia nhóm <span><a href="#">Học lập trình tại APB</a></span> trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️
+        </p>
+        <p>Kết bạn <span><a href="#">Facebook nhé ❤️!</a></span></p>
+    </div>
+    <div class="match__right">
+        <h3>Nội dung khóa học</h3>
+        <ul>
+            @foreach (var item in Model.listProduct)
+            {
+                <li data-title="@item.UrlVideoYoutube">
+                    <a>
+                        <div>
+                            <h5>
+                                @item.ProductName
+                            </h5>
+                            <i class='bx bx-check'></i>
+                        </div>
+                        <p>
+                            <i class='bx bx-movie-play'></i> Nhấn vào để xem
+                        </p>
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>
+

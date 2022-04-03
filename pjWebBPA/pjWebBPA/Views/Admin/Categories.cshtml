@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="adminPage">
+    <h1 class="adminPage__heading">Categories</h1>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>Categories News List</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Thumb</th>
+                            <th>Slug</th>
+                            <th>Create</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listCategoriesBlog)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title</td>
+                                <td>@item.Content</td>
+                                <td> <img style="width: 70px; height: 70px; object-fit:cover" src="@item.Thumb" /></td>
+                                <td>@item.Slug</td>
+                                <td>@item.CreatedAt</td>
+                                <td><a href="#">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+        <a href="@Url.Action("Create", "CategoryBlog")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>
+    </div>
+    <div>
+        <div style="margin-top: 3rem" class="card">
+            <div class="card__header">
+                <h3>Categories Course List</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Thumb</th>
+                            <th>Ordering</th>
+                            <th>Create</th>
+                            <th>isFondend</th>
+                            <th>Pulished</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listCategoriesCourse)
+                        {
+                            <tr>
+                                <td>@item.CategoryCourseId</td>
+                                <td>@item.CategoryCourseName</td>
+                                <td> <img style="width: 70px; height: 70px; object-fit:cover" src="@item.CategoryImage" /></td>
+                                <td>@item.Ordering</td>
+                                <td>@item.CreateAt</td>
+                                <td>@item.isFondend</td>
+                                <td>@item.Published</td>
+                                <td><a href="#">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+        <a href="@Url.Action("CreateCategoryCourse", "Admin")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>
+    </div>
+
+</div>
+

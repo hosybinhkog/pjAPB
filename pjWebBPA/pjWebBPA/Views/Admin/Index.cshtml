@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="adminPage">
+
+    <h1 class="adminPage__heading">Admin page</h1>
+
+
+    <div class="grid-col-4 grid" style="gap: 3rem; padding-top: 2rem;">
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-user-plus'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.coutCustomer</h4>
+                <span>Customer</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-cylinder'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.coutProduct</h4>
+                <span>Product</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bxl-blogger'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.countBlog</h4>
+                <span>Blog</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-category-alt'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.coutCateBlog</h4>
+                <span>Categories blog</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class="bx bx-shopping-bag"></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.countOrder</h4>
+                <span>Order</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-category-alt'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.countCateCourse</h4>
+                <span>Categories Course</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-check-shield'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.countAdmin</h4>
+                <span>Admin</span>
+            </div>
+        </div>
+        <div class="status-card">
+            <div class="status-card__icon">
+                <i class='bx bx-user-voice'></i>
+            </div>
+            <div class="status-card__info">
+                <h4>@Model.countTeacher</h4>
+                <span>Teacher</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>top customers</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>user</th>
+                            <th>user</th>
+                            <th>user</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{item.id}</td>
+                            <td>{item.user}</td>
+                            <td>{item.price}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>top customers</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>user</th>
+                            <th>user</th>
+                            <th>user</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{item.id}</td>
+                            <td>{item.user}</td>
+                            <td>{item.price}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+    </div>
+</div>
+

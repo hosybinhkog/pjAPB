@@ -1,0 +1,139 @@
+﻿@using pjWebBPA.contextModels
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="detailsCategoryCourse">
+    <div class="detailsCategoryCourse__left">
+        <h1 class="detailsCategoryCourse__left__heading">
+            @Model.courseCate.CategoryCourseName
+        </h1>
+        <p class="detailsCategoryCourse__left__desc"> @Model.courseCate.TitleCategoryCourse</p>
+        <div class="detailsCategoryCourse__left__block1">
+            <h2 class="detailsCategoryCourse__left__block1__heading">Bạn sẽ học  được gì?</h2>
+            <ul>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách xây dựng giao diện web với HTML, CSS
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách đặt tên class CSS theo chuẩn BEM
+                </li>
+
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Làm chủ Flexbox khi dựng bố cục website
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách tự tạo động lực cho bản thân
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách phân tích giao diện website
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách làm giao diện web responsive
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Sở hữu 2 giao diện web khi học xong khóa học
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Biết cách xây dựng giao diện web với HTML, CSS
+                </li>
+            </ul>
+            <h2 class="detailsCategoryCourse__left__block1__heading">Yêu cầu</h2>
+            <ul>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Máy vi tính kết nối internet (Windows, Ubuntu hoặc MacOS)
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Ý thức tự học cao, trách nhiệm cao, kiên trì bền bỉ không ngại cái khó
+                </li>
+
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Không được nóng vội, bình tĩnh học, làm bài tập sau mỗi bài học
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Khi học nếu có khúc mắc hãy tham gia hỏi/đáp tại group FB: Học lập trình web (fullstack.edu.vn)
+                </li>
+                <li>
+                    <span><i class='bx bx-check'></i></span>
+                    Bạn không cần biết gì hơn nữa, trong khóa học tôi sẽ chỉ cho bạn những gì bạn cần phải biết
+                </li>
+            </ul>
+        </div>
+        <div class="detailsCategoryCourse__left__container">
+            <h3 class="detailsCategoryCourse__left__container__heading">
+                Nội dung khóa học
+            </h3>
+            <p>
+                14 chương
+                •
+                @Model.listProduct.Count bài học
+                •
+                Thời lượng 28 giờ 05 phút
+            </p>
+            <h3>Danh sách bài học</h3>
+            <ul>
+                @foreach (var item in Model.listProduct)
+                {
+                    <li>
+                        <img src="@item.ProductImage" alt="Alternate Text" />
+                        <div>
+                            <h4>@item.ProductName</h4>
+                            <p>@item.ProductShortDescription</p>
+                            <p><span>seri</span> @item.ProductDescription</p>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="detailsCategoryCourse__right">
+        <div class="detailsCategoryCourse__right__img" style="background-image: url(@Model.courseCate.CategoryImage) ,linear-gradient(180deg,rgba(30,30,28,0),rgba(30,30,28,.9)) ">
+            <a href="#" class="active-videodemo">
+                <i class='bx bx-play-circle'></i>
+                Xem giới thiệu khóa học
+            </a>
+        </div>
+        <h3>Chào bạn</h3>
+        <a href="@Url.Action("MatchCourse", "CategoryCourse", new {id = Model.courseCate.CategoryCourseId})" class="btn btn--add">học bài Now!</a>
+        <ul>
+            <li>
+                <i class='bx bx-ghost'></i>
+                Trình độ cơ bản
+            </li>
+            <li>
+                <i class='bx bx-movie-play'></i>    
+                Trình độ cơ bản
+            </li>
+            <li>
+                <i class='bx bx-time'></i>
+                Trình độ cơ bản
+            </li>
+            <li>
+                <i class='bx bx-desktop'></i>
+                Học mọi lúc, mọi nơi
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="model">
+    <div class="overlay"></div>
+    <div class="model__container" style="z-index: 100">
+        <h3>Giới thiệu khóa học</h3>
+        <h2> @Model.courseCate.CategoryCourseName</h2>
+        <iframe id="model-cate" width="800" height="400" src="@Model.courseCate.UrlCourse" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+</div>

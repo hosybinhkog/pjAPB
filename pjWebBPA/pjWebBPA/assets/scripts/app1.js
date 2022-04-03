@@ -76,3 +76,41 @@ for (i = 0; i < linkCollapse.length; i++) {
     rotate.classList.toggle('rotate');
   });
 }
+
+
+
+const activeModel = document.querySelector(".active-videodemo");
+const videoDemo = document.querySelector(".model");
+const overley = document.querySelector(".model .overlay")
+
+const video = document.getElementById("model-cate");
+
+if (activeModel) {
+    activeModel.addEventListener("click", () => {
+        videoDemo.classList.add("active");
+    })
+
+    overley.addEventListener("click", () => {
+        videoDemo.classList.remove("active");
+    })  
+}
+
+const listMatch = document.querySelectorAll(".match__right ul li");
+const frameMatch = document.querySelector(".match__left__frame iframe")
+
+
+if (listMatch) {
+    listMatch.forEach((item) => {
+        item.addEventListener("click", () => {
+            const url = item.getAttribute("data-title");
+            const urlAutoPlay = url + "?autoplay=1";
+            const ActiveLi = document.querySelector(".match__right ul li.active")
+            if (ActiveLi) {
+                ActiveLi.classList.remove('active');
+                
+            }
+            item.classList.add('active')
+            frameMatch.setAttribute('src', urlAutoPlay);
+        })
+    })
+}

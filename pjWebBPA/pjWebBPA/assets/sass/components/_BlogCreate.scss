@@ -1,0 +1,21 @@
+﻿.BlogCreate{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    
+    &__title{
+        font-size: 2rem;
+        line-height: 1.6;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        color: $button-color;
+    }
+
+    &__container{
+        width: 840px;
+
+    }
+}

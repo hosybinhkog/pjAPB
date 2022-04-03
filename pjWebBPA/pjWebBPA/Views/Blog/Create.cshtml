@@ -1,0 +1,77 @@
+﻿@model pjWebBPA.contextModels.Blog
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="BlogCreate">
+    <h1 class="BlogCreate__title">Tạo bài viết</h1>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+<div class="BlogCreate__container">
+    <div class="form-group-auth">
+        @Html.LabelFor(m => m.Title, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", @placeholder = "Tiêu đề" })
+        <span class="form-message">
+            @Html.ValidationMessageFor(model => model.Title, "");
+        </span>
+    </div>
+
+    <div class="form-group-auth">
+        @Html.LabelFor(m => m.ContentBlog, new { @class = "form-label" })
+        @Html.TextAreaFor(m => m.ContentBlog, new { @class = "form-control", @placeholder = "Nội dung bài viết", @rows = 10 })
+        <span class="form-message">
+            @Html.ValidationMessageFor(model => model.Tag, "");
+        </span>
+    </div>
+
+    <div class="form-group-auth">
+        @Html.LabelFor(m => m.ShortContent, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.ShortContent, new { @class = "form-control", @placeholder = "vd nội dung ngắn" })
+        <span class="form-message">
+            @Html.ValidationMessageFor(model => model.ShortContent, "");
+        </span>
+    </div>
+
+
+    <div class="form-group-auth">
+        @Html.LabelFor(m => m.ThumBlog, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.ThumBlog, new { @class = "form-control", @placeholder = "vd https:///images/hinh-lan-xom-chua" })
+        <span class="form-message">
+            @Html.ValidationMessageFor(model => model.Tag, "");
+        </span>
+    </div>
+
+
+
+
+
+    <div class="form-group-auth">
+        @Html.LabelFor(m => m.Tag, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Tag, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+        <span class="form-message">
+            @Html.ValidationMessageFor(model => model.Tag, "");
+        </span>
+    </div>
+    <span>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </span>
+    <div style="padding: 1rem; text-align: center">
+
+        <h5 style="font-size: 1.3rem"><span>@ViewBag.error</span></h5>
+        <h5 style="font-size: 1.3rem">@ViewBag.success</h5>
+
+    </div>
+    <button class="button-auth" type="submit">
+        Create
+    </button>
+</div>
+</div>
+}

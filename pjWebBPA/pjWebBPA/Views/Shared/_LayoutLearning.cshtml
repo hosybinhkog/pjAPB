@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web học fullstack hay nhất việt nam">
+    <meta name="author" content="Nhóm Bình Phong Anh">
+    <meta name="keywords" content="HTML , CSS , SCSS , JavaScript , Typescript">
+    <title>@ViewBag.Title - ABPPRO</title>
+    <link href="~/assets/boxicons-2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    <link href="~/assets/css/user.css" rel="stylesheet" />
+    <link href="~/assets/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="header">
+        <div class="header__menu__toggle">
+            <i class='bx bx-menu-alt-left'></i>
+        </div>
+        <h4 class="header__logo">
+            <a href="/Home">
+                APB<span>PRO</span> Nền Tảng Học Fullstack
+            </a>
+        </h4>
+        <div class="header__search">
+            <i class='bx bx-search icon-search header__search__icon'></i>
+            <input type="text" spellcheck="false"
+                   placeholder=" Tìm kiếm các phụ kiện mà bạn cần"
+                   class="header__search__input">
+        </div>
+        @if (Session["login"] == null)
+        {
+            <div class="header__action">
+                <button class="btn btn--primary header__action__btn">
+
+                    <i class="bx bxs-user"></i>
+                    @Html.ActionLink("Đăng nhập", "Login", "User")
+
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="header__action">
+                <a href="profileUser.php" class="header__action__admin">
+                    <img class="avatar"
+                         src="
+                     @if (Session["avatar"] != null)
+                {
+                    <text>@Session["avatar"].ToString()</text>
+                } else
+                {
+                    <text>https://banner2.cleanpng.com/20180331/khw/kisspng-computer-icons-user-clip-art-user-5abf13d4b67e20.4808850915224718927475.jpg</text>
+                }
+                 "
+                         alt="">
+                    <span class="name_avatar">
+                        @if (Session["displayName"] != null)
+                        {
+
+                            <text>@Session["displayName"].ToString()</text>
+                        }
+                        else
+                        {
+
+                            <text>@Session["email"].ToString()</text>
+                        }
+                    </span>
+                </a>
+                <button class="btn btn--cart header__action__btn">
+                    <i class="bx bx-cart-alt"></i>
+                    @Html.ActionLink("Khóa học", "Logout", "User")
+                </button>
+                <button class="btn btn--primary header__action__btn">
+                    <i class="bx bxs-user"></i>
+                    @Html.ActionLink("Đăng xuất", "Logout", "User")
+                </button>
+            </div>
+        }
+
+    </header>
+    @RenderBody()
+    <script type="text/javascript" src="~/assets/scripts/app1.js"></script>
+</body>
+</html>

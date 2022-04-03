@@ -1,0 +1,92 @@
+﻿@model pjWebBPA.contextModels.CustomerUser
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2 class="heading" style="text-align: center; margin-bottom: 2rem">
+        Thông tin cá nhân
+    </h2>
+    <div class="profile">
+        <div class="profile__left">
+            <img src="@Model.DisplayImage" alt="">
+        </div>
+        <div class="profile__right">
+            <h3 class="profile__right__name">
+                @Model.DisplayName
+            </h3>
+            <p class="desc">
+                @if (Model.Email != null)
+                {
+                    <text>@Model.Email</text>
+                }
+                else
+                {
+                    <text>Chưa có email</text>
+                }
+            </p>
+            <p class="desc">
+            </p>
+            <p class="desc">
+                <span>
+                    Phone:
+                </span>
+                @if (Model.Phone != null)
+                {
+                    <text>@Model.Email</text>
+                }
+                else
+                {
+                    <text>Chưa có phone</text>
+                }
+
+            </p>
+            <p desc>
+                <span>Address</span>  @if (Model.Address != null)
+                {
+                    <text>@Model.Address</text>
+                }
+                else
+                {
+                    <text>Chưa có địa chỉ</text>
+                }
+            </p>
+            <p desc>
+                <span>Đường</span>  @if (Model.District != null)
+                {
+                    <text>@Model.District</text>
+                }
+                else
+                {
+                    <text>Chưa có số đường</text>
+                }
+            </p>
+            <p desc>
+                <span>Số nhà</span>  @if (Model.Code != null)
+                {
+                    <text>@Model.Code</text>
+                }
+                else
+                {
+                    <text>Chưa có số nhà</text>
+                }
+            </p>
+            <p desc>
+                <span>Ngày tạo tài khoản</span>  @if (Model.CreateAt != null)
+                {
+                    <text>@Model.CreateAt</text>
+                }
+                else
+                {
+                    <text>Chưa có ngày tạo</text>
+                }
+            </p>
+            <a href="@Url.Action("update", "Me")" class="btn-edit">
+                Chỉnh xửa thông tin
+            </a>
+            <a href="" class="btn-edit">Các khóa học đã mua</a>
+            <a href="" class="btn-edit">Các bài viết của bạn</a>
+        </div>
+    </div>
+</div>

@@ -6,20 +6,18 @@
 
 <div class="learning">
     <div class="learning__header">
-        <h2 class="learning__header__heading">
+        <h2 class="learning__header__heading" >
             Lộ trình học
         </h2>
         <p class="learning__header__desc">
             Để bắt đầu một cách thuận lợi, bạn nên tập trung vào một lộ trình học. Ví dụ: Để đi làm với vị trí “Lập trình viên Front-end” bạn nên tập trung vào lộ trình “Front-end”.
         </p>
     </div>
-    <div class="laerning__container">
+    <div class="learning__container">
         <div class="learning__container__item">
             <div class="learning__container__item__left">
                 <div class="learning__container__item__left__heading">
-                    <a href="#">
-                        Lộ trình học Font-end
-                    </a>
+                    @Html.ActionLink("Lộ trình học Font-end", "Fontend", "LearningPath")
                 </div>
                 <p>
                     Lập trình viên Front-end là người xây dựng ra giao diện websites. Trong phần này F8 sẽ chia sẻ cho bạn lộ trình để trở thành lập trình viên Front-end nhé.
@@ -32,34 +30,80 @@
                     </li>
                     <li>
                         <a href="#">
-                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                            <img src="~/assets/images/html.png" alt="Alternate Text" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                            <img src="~/assets/images/css.png" alt="Alternate Text" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                            <img src="~/assets/images/jss.png" alt="Alternate Text" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                            <img src="~/assets/images/jss1.png" alt="Alternate Text" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                            <img src="~/assets/images/react1.png" alt="Alternate Text" />
                         </a>
                     </li>
                 </ul>
-                <a href="#" class="learning__button">Xem chi tiết</a>
+                @Html.ActionLink("Xem chi tiết", "Fontend", "LearningPath" , null, new { @class = "learning__button"})
             </div>
             <div class="learning__container__item__right">
                 <img src="~/assets/images/section1.png" alt="Alternate Text" />
+            </div>
+        </div>
+        <div class="learning__container__item">
+            <div class="learning__container__item__left">
+                <div class="learning__container__item__left__heading">
+                    @Html.ActionLink("Lộ trình học Back-end", "Backend", "LearningPath")
+                </div>
+                <p>
+                    Trái với Front-end thì lập trình viên Back-end là người làm việc với dữ liệu, công việc thường nặng tính logic hơn. Chúng ta sẽ cùng tìm hiểu thêm về lộ trình học Back-end nhé.
+                </p>
+                <ul class="list-course">
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/li1.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/html.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/css.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/jss.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/jss1.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="~/assets/images/node.png" alt="Alternate Text" />
+                        </a>
+                    </li>
+                </ul>
+                @Html.ActionLink("Xem chi tiết", "Backend", "LearningPath", null, new { @class = "learning__button" })
+            </div>
+            <div class="learning__container__item__right">
+                <img src="~/assets/images/section2.png" alt="Alternate Text" />
             </div>
         </div>
     </div>

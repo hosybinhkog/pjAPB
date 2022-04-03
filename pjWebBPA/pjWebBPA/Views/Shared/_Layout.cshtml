@@ -27,15 +27,57 @@
                    placeholder=" Tìm kiếm các phụ kiện mà bạn cần"
                    class="header__search__input">
         </div>
-        <div class="header__action">
-            <button class="btn btn--primary header__action__btn">
-                <a href="/user/">
-                    <i class="bx bxs-user"></i>
-                    Đăng nhập
-                </a>
-            </button>
-        </div>
-       
+        @if (Session["login"] == null)
+        {
+            <div class="header__action">
+                <button class="btn btn--primary header__action__btn">
+
+                        <i class="bx bxs-user"></i>
+                        @Html.ActionLink("Đăng nhập", "Login", "User")
+ 
+                </button>
+            </div>
+        }
+        else
+        {
+    <div class="header__action">
+        <a href="@Url.Action("Index", "Me")" class="header__action__admin">
+            <img class="avatar" 
+                 src="
+                     @if (Session["avatar"] != null)
+                {
+                    <text>@Session["avatar"].ToString()</text>
+                } else
+                {
+                    <text>https://banner2.cleanpng.com/20180331/khw/kisspng-computer-icons-user-clip-art-user-5abf13d4b67e20.4808850915224718927475.jpg</text>
+                }
+                 "
+                 
+                 alt="">
+            <span class="name_avatar">
+                @if (Session["displayName"] != null)
+                {
+   
+                    <text>@Session["displayName"].ToString()</text>
+                }
+                else
+                {
+
+                    <text>@Session["email"].ToString()</text>
+                }
+            </span>
+        </a>
+        <button class="btn btn--cart header__action__btn">
+            <i class="bx bx-cart-alt"></i>
+            @Html.ActionLink("Khóa học", "Logout", "User")
+        </button>
+        <button class="btn btn--primary header__action__btn">
+            <i class="bx bxs-user"></i>
+            @Html.ActionLink("Đăng xuất", "Logout", "User")
+        </button>
+    </div>  
+        }
+
     </header>
 
     <div class="hero">

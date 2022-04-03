@@ -64,9 +64,16 @@ html {
   outline: none;
   font-size: 1.4rem;
 }
-
+select {
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #b3b3b3;
+    border-radius: 3px;
+    outline: none;
+    font-size: 1.4rem;
+}
 .form-control.textaria {
-  height: 80px;
+    height: 80px;
 }
 
 .form-control:hover {
@@ -107,4 +114,19 @@ html {
 
 .spacer {
   margin-top: 36px;
+}
+
+.flex-center{
+    display: flex;
+    align-content:space-between;
+    gap: 2rem;
+
+}
+
+.flex-center img{
+    width: 200px;
+    height: 130px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    object-fit:cover;
 }

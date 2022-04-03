@@ -1,0 +1,151 @@
+﻿
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="adminPage">
+
+    <h1 class="adminPage__heading">Cumtomer page</h1>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>List customer</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Avatar</th>
+                            <th>Email</th>
+                            <th>Last login</th>
+                            <th>CreateAt</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listCustomer)
+                        {
+                            <tr>
+                                <td>@item.CustomerId</td>
+                                <td>@item.DisplayName</td>
+                                <td>
+                                    @if (item.DisplayImage != null)
+                                    {
+                                        <img style="width: 70px; height: 70px; object-fit:cover" src="@item.DisplayImage" />
+                                    }
+                                    else
+                                    {
+                                        <p>Chưa cập nhật hình ảnh</p>
+                                    }
+                                </td>
+                                <td>@item.Email</td>
+                                <td>@item.LastLogin</td>
+                                <td>@item.CreateAt</td>
+                                <td><a href="#">View details</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>List admin</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Avatar</th>
+                            <th>Email</th>
+                            <th>Last login</th>
+                            <th>CreateAt</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listAdmin)
+                        {
+                            <tr>
+                                <td>@item.userId</td>
+                                <td>@item.displayName</td>
+                                <td>
+                                    @if (item.avatar != null)
+                                    {
+                                        <img style="width: 70px; height: 70px; object-fit:cover" src="@item.avatar" />
+                                    }
+                                    else
+                                    {
+                                        <p>Chưa cập nhật hình ảnh</p>
+                                    }
+                                </td>
+                                <td>@item.email</td>
+                                <td>@item.LastLogin</td>
+                                <td>@item.createAt</td>
+                                <td><a href="#">View details</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>List Teacher</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Avatar</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listTeacher)
+                        {
+                            <tr>
+                                <td>@item.TeacherId</td>
+                                <td>@item.TeacherName</td>
+                                <td>
+                                    @if (item.Image != null)
+                                    {
+                                        <img style="width: 70px; height: 70px; object-fit:cover" src="@item.Image" />
+                                    }
+                                    else
+                                    {
+                                        <p>Chưa cập nhật hình ảnh</p>
+                                    }
+                                </td>
+                                <td style="width: 300px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;">@item.Description</td>
+                                <td><a href="#">View details</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+        </div>
+        <a href="@Url.Action("Create", "Teacher")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>
+    </div>
+</div>
