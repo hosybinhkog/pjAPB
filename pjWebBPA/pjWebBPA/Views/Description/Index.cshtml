@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc;
+@using pjWebBPA.contextModels;
+@{
+    ViewBag.Title = "Description";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="adminPage">
+    <h1 class="adminPage__heading">Categories</h1>
+    <div>
+        <div class="card">
+            <div class="card__header">
+                <h3>Categories News List</h3>
+            </div>
+            <div class="card__body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Description</th>
+                            <th>List Desc</th>
+                            <th>Category Course</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.listDescription)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td style="width: 300px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden;">@item.Description</td>
+                                <td style="">@item.ListDesc</td>
+                                <td>@foreach(var i in Model.listCategoryCourse) { 
+                                    if(i.CategoryCourseId == item.CateCourseId) { <text>@i.CategoryCourseName</text>}
+                                }</td>
+                                <td><a href="@Url.Action("Update", "" , new {id = item.Id})">Edit</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card__footer">
+                <a href="#">View All!</a>
+            </div>
+            <div class="paged__list">
+                @Html.PagedListPager(Model.listDescription as PagedList.IPagedList<description>, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+        <a href="@Url.Action("Create", "Description")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>
+
+    </div>
+
+</div>
+

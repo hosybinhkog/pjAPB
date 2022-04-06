@@ -1,5 +1,6 @@
 ﻿@using pjWebBPA.contextModels;
-@model dynamic
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Blog List";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,31 +23,34 @@
                             <img src="
                                     @if (blog.imageAuthor != null) { <text>@blog.imageAuthor</text>} else {<text>http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png</text> }
                                  " alt="Alternate Text" />
-                          <span>@blog.Author</span>
+                            <span>@blog.Author</span>
 
-                      </div>
+                        </div>
 
-                      <div>
+                        <div>
 
-                          <i class='bx bx-bookmark'></i>
+                            <i class='bx bx-bookmark'></i>
                             <i class='bx bx-dots-horizontal-rounded'></i>
                         </div>
                     </div>
                     <div class="flex-center">
                         <div>
                             <h3>@Html.ActionLink(blog.Title, "Destails", "Blog", new { id = blog.BlogId }, null)</h3>
-                            
+
                             <div class="three__row">
                                 @Html.Raw(blog.ShortContent)
                             </div>
-                            
+
                             <p>@String.Format("{0:MM/dd/yyyy}", blog.CreateAt)</p>
                         </div>
                         <img src="@blog.ThumBlog" alt="Alternate Text" />
                     </div>
                 </div>
+                
             }
- 
+        <div class="paged__list">
+            @Html.PagedListPager(Model.listBlog as PagedList.IPagedList<Blog>, page => Url.Action("Index", new { page }))
+        </div>
         </div>
         <div class="blogpage__container__right">
             <h4 class="blogpage__container__right__title">

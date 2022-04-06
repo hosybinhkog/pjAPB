@@ -1,4 +1,5 @@
-﻿
+﻿@using PagedList.Mvc;
+@using pjWebBPA.contextModels;
 @{
     ViewBag.Title = "Categories";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -43,8 +44,12 @@
             <div class="card__footer">
                 <a href="#">View All!</a>
             </div>
+            <div class="paged__list">
+                @Html.PagedListPager(Model.listCategoriesBlog as PagedList.IPagedList<CategoryBlog>, page => Url.Action("Categories", new { page }))
+            </div>
         </div>
         <a href="@Url.Action("Create", "CategoryBlog")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>
+
     </div>
     <div>
         <div style="margin-top: 3rem" class="card">
@@ -84,6 +89,9 @@
             </div>
             <div class="card__footer">
                 <a href="#">View All!</a>
+            </div>
+            <div class="paged__list">
+                @Html.PagedListPager(Model.listCategoriesCourse as PagedList.IPagedList<CategoryCourse>, page1 => Url.Action("Categories", new { page1 }))
             </div>
         </div>
         <a href="@Url.Action("CreateCategoryCourse", "Admin")" style="margin-left: 2rem" class="btn btn--add btn--blue">Create</a>

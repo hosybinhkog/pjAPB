@@ -44,15 +44,12 @@
             <img src="@Model.blogDetails.ThumBlog" alt="wepik-20211113-01332.png" />
         </div>
         <ul class="tag">
-            <li>
-                <a href="#">Tag</a>
-            </li>
-            <li>
-                <a href="#">Tag</a>
-            </li>
-            <li>
-                <a href="#">Tag</a>
-            </li>
+            @foreach (var item in Model.listTag)
+            {
+                <li>
+                    <a href="#">@item</a>
+                </li>
+            }
         </ul>
         <div class="author">
             <h3>Bài đăng cùng tác giả</h3>
@@ -107,7 +104,7 @@
                 @foreach (CategoryBlog categoryBlog in Model.listCategory)
                 {
                     <li>
-                        @Html.ActionLink(categoryBlog.Title, "Login")
+                        <a href="@Url.Action("BlogByCate", "Blog", new {id = categoryBlog.Id})">@categoryBlog.Title</a>
                     </li>
                 }
             </ul>

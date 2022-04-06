@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace pjWebBPA.Controllers
 {
@@ -146,17 +147,19 @@ namespace pjWebBPA.Controllers
         }
 
 
-        public ActionResult Categories()
+        public ActionResult Categories(int? page, int ? page1)
         {
+            int pageNum = (page ?? 1);
+            int pageNum1 = (page1 ?? 1);
             if (Session["login"] == null || Session["isAdmin"] == null)
             {
                 return RedirectToAction("Login");
             }
             dynamic mymodel = new ExpandoObject();
-            var listCategoriesBlog = db.CategoryBlogs.ToList();
-            var listCategoriesCourse = db.CategoryCourses.ToList();
-           
-            if(listCategoriesCourse != null)
+            var listCategoriesBlog = db.CategoryBlogs.ToList().ToPagedList(pageNum, 6);
+            var listCategoriesCourse = db.CategoryCourses.ToList().ToPagedList(pageNum1, 4);
+
+            if (listCategoriesCourse != null)
             {
                 mymodel.listCategoriesCourse = listCategoriesCourse;
             }
@@ -252,6 +255,7 @@ namespace pjWebBPA.Controllers
                 cateCourse.LevelClass = 1;
                 cateCourse.CreateAt = DateTime.Now;
                 cateCourse.isNew = true;
+                cateCourse.TeacherId = 2;
                 db.Configuration.ValidateOnSaveEnabled = false;
                 db.CategoryCourses.Add(cateCourse);
 

@@ -5,20 +5,21 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using PagedList;
 namespace pjWebBPA.Controllers
 {
     public class ProductController : Controller
     {
         // GET: Product
         contextDBapb db = new contextDBapb();
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
+            int pageNum = (page ?? 1);
             if (Session["login"] == null || Session["isAdmin"] == null)
             {
                 return RedirectToAction("Login","Admin");
             }
-            var data = db.ProductCourses.ToList();
+            var data = db.ProductCourses.ToList().ToPagedList(pageNum, 8);
             return View(data);
         }
 

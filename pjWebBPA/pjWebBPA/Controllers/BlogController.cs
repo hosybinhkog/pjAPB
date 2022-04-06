@@ -5,6 +5,8 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace pjWebBPA.Controllers
 {
@@ -15,10 +17,11 @@ namespace pjWebBPA.Controllers
 
         contextDBapb db = new contextDBapb();
 
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var listBlog = db.Blogs.ToList();
-            var listCategory = db.CategoryBlogs.ToList();
+            int pageNum = (page ?? 1);
+            var listBlog = db.Blogs.ToList().ToList().ToPagedList(pageNum, 5);
+            var listCategory = db.CategoryBlogs;
             dynamic mymodel = new ExpandoObject();
             mymodel.listBlog = listBlog;
             mymodel.listCategory = listCategory;    
@@ -96,6 +99,7 @@ namespace pjWebBPA.Controllers
             mymodel.listBlog = listBlog;
             mymodel.listCategory = listCategory;
             mymodel.authorBlog = authorBlog;
+            mymodel.listTag = blog.Tag.Split('-').ToList();
             if (blog == null)
             {
                 return RedirectToAction("Index");

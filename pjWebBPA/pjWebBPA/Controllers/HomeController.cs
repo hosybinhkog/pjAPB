@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace pjWebBPA.Controllers
 {
@@ -12,12 +13,13 @@ namespace pjWebBPA.Controllers
     {
 
         contextDBapb db = new contextDBapb();
-        public ActionResult Index()
+        public ActionResult Index(int? pageBlog)
         {
+            int pageNume = (pageBlog ?? 1);
             dynamic mymodel = new ExpandoObject();
             var listCourseNotFontend = db.CategoryCourses.Where(item => item.isFondend == false).ToList();
             var listCourseFondend = db.CategoryCourses.Where(item => item.isFondend == true).ToList();  
-            var blogHot = db.Blogs.Where(item => item.isNewfeed == true).ToList();
+            var blogHot = db.Blogs.Where(item => item.isNewfeed == true).ToList().ToPagedList(pageNume, 8);
             var listCategoryBLog = db.CategoryBlogs.ToList();
 
             mymodel.listCourseNotFontend = listCourseNotFontend;

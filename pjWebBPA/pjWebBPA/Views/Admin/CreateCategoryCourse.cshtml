@@ -15,85 +15,85 @@
         <h1 class="create__title">Create Category Course</h1>
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="create__container">
-        <div class="form-group-auth">
-            @Html.LabelFor(model => model.CategoryCourseName, new { @class = "form-label" })
-            @Html.TextBoxFor(model => model.CategoryCourseName, new { @class = "form-control", @placeholder = "Lan xóm chùa" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.CategoryCourseName, "");
+        <div class="create__container">
+            <div class="form-group-auth">
+                @Html.LabelFor(model => model.CategoryCourseName, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.CategoryCourseName, new { @class = "form-control", @placeholder = "Lan xóm chùa" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.CategoryCourseName, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(model => model.TitleCategoryCourse, new { @class = "form-label" })
+                @Html.TextBoxFor(model => model.TitleCategoryCourse, new { @class = "form-control", @placeholder = "Lập trình dữ liệu" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.TitleCategoryCourse, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(model => model.Published, new { @class = "form-label" })
+                @Html.EditorFor(model => model.Published, new { @class = "form-control", @placeholder = "vd: http//images " })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.Published, "");
+                </span>
+            </div>
+
+
+            <div class="form-group-auth">
+                @Html.LabelFor(m => m.CategoryImage, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CategoryImage, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.CategoryImage, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(m => m.isFondend, new { @class = "form-label" })
+                @Html.EditorFor(m => m.isFondend, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.isFondend, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(m => m.isFree, new { @class = "form-label" })
+                @Html.EditorFor(m => m.isFree, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.isFondend, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+                @Html.EditorFor(m => m.Price, new { @class = "form-control", @placeholder = "lan-xom-chua" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.Price, "");
+                </span>
+            </div>
+
+            <div class="form-group-auth">
+                @Html.LabelFor(m => m.UrlCourse, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.UrlCourse, new { @class = "form-control", @placeholder = "Link video" })
+                <span class="form-message">
+                    @Html.ValidationMessageFor(model => model.UrlCourse, "");
+                </span>
+            </div>
+
+
+            <span>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             </span>
+            <div style="padding: 1rem; text-align: center">
+
+                <h5 style="font-size: 1.3rem"><span>@ViewBag.error</span></h5>
+                <h5 style="font-size: 1.3rem">@ViewBag.success</h5>
+
+            </div>
+            <button class="button-auth" type="submit">
+                Create
+            </button>
         </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(model => model.TitleCategoryCourse, new { @class = "form-label" })
-            @Html.TextBoxFor(model => model.TitleCategoryCourse, new { @class = "form-control", @placeholder = "Lập trình dữ liệu" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.TitleCategoryCourse, "");
-            </span>
-        </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(model => model.Published, new { @class = "form-label" })
-            @Html.EditorFor(model => model.Published, new { @class = "form-control", @placeholder = "vd: http//images " })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.Published, "");
-            </span>
-        </div>
-
-
-        <div class="form-group-auth">
-            @Html.LabelFor(m => m.CategoryImage, new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.CategoryImage, new { @class = "form-control", @placeholder = "lan-xom-chua" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.CategoryImage, "");
-            </span>
-        </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(m => m.isFondend, new { @class = "form-label" })
-            @Html.EditorFor(m => m.isFondend, new { @class = "form-control", @placeholder = "lan-xom-chua" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.isFondend, "");
-            </span>
-        </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(m => m.isFree, new { @class = "form-label" })
-            @Html.EditorFor(m => m.isFree, new { @class = "form-control", @placeholder = "lan-xom-chua" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.isFondend, "");
-            </span>
-        </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(m => m.Price, new { @class = "form-label" })
-            @Html.EditorFor(m => m.Price, new { @class = "form-control", @placeholder = "lan-xom-chua" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.Price, "");
-            </span>
-        </div>
-
-        <div class="form-group-auth">
-            @Html.LabelFor(m => m.UrlCourse, new { @class = "form-label" })
-            @Html.TextBoxFor(m => m.UrlCourse, new { @class = "form-control", @placeholder = "Link video" })
-            <span class="form-message">
-                @Html.ValidationMessageFor(model => model.UrlCourse, "");
-            </span>
-        </div>
-
-
-        <span>
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        </span>
-        <div style="padding: 1rem; text-align: center">
-
-            <h5 style="font-size: 1.3rem"><span>@ViewBag.error</span></h5>
-            <h5 style="font-size: 1.3rem">@ViewBag.success</h5>
-
-        </div>
-        <button class="button-auth" type="submit">
-            Create
-        </button>
-    </div>
     </div>
 }

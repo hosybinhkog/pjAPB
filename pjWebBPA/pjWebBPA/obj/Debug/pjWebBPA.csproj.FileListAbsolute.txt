@@ -112,3 +112,7 @@ Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\Microsoft.Owin.Security.Goo
 Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\Microsoft.Owin.Security.OAuth.xml
 Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\Microsoft.Owin.Security.Twitter.xml
+Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\PagedList.dll
+Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\PagedList.Mvc.dll
+Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\PagedList.xml
+Z:\workspace\Learn_2022\pj_bpa\pjWebBPA\pjWebBPA\bin\PagedList.Mvc.xml
